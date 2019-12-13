@@ -4,7 +4,7 @@ const cookieSession = require('cookie-session');
 const bcrypt = require('bcrypt');
 const dbConnection = require('./database');
 const { body, validationResult } = require('express-validator');
-
+const PORT = process.env.PORT || 3000
 const app = express();
 app.use(express.urlencoded({extended:false}));
 
@@ -167,4 +167,6 @@ app.use('/', (req,res) => {
 
 app.use(express.static(path.join(__dirname, 'views')))
 
-app.listen(3000, () => console.log("Server is Running..."));
+
+
+app.listen(PORT, () => console.log("Server is Running..."));
