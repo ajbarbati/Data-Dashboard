@@ -1,18 +1,14 @@
 const mysql = require("mysql2")
-let dbConnection ;
+const dbConnection = mysql.createPool(process.env.JAWSDB_URL).promise()
 
+//   dbConnection = mysql.createPool({
+//       host: "localhost", // MYSQL HOST NAME
+//       user: "root", // MYSQL USERNAME
+//       password: "root", // MYSQL PASSWORD
+//       database: "nodejs_login" // MYSQL DB NAME
+//     })
+//     
 
-if (process.env.JAWSDB_URL) {
-  dbConnection = mysql.createPool(process.env.JAWSDB_URL)
-} else {
-  dbConnection = mysql.createPool({
-      host: "localhost", // MYSQL HOST NAME
-      user: "root", // MYSQL USERNAME
-      password: "root", // MYSQL PASSWORD
-      database: "nodejs_login" // MYSQL DB NAME
-    })
-    .promise()
-}
 
 // dbConnection.connect(function(err) {
 //     if (err) throw err;
